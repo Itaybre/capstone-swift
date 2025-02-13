@@ -10,23 +10,25 @@ let package = Package(
         .library(
             name: "Capstone",
             targets: ["Capstone"]
-        )
+        ),
+        .library(
+            name: "Ccapstone",
+            targets: ["Ccapstone"]
+        ),
     ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-    ],
+    dependencies: [],
     targets: [
-        .systemLibrary(name: "Ccapstone",
-                       pkgConfig: "capstone",
-                       providers: [
-                        .brew(["capstone"])
-        ]),
+        .binaryTarget(
+            name: "Ccapstone",
+            path: "./Ccapstone.xcframework"
+        ),
         .target(
             name: "Capstone",
-            dependencies: ["Ccapstone"]),
+            dependencies: ["Ccapstone"]
+        ),
         .testTarget(
             name: "CapstoneTests",
-            dependencies: ["Capstone"])
+            dependencies: ["Capstone"]
+        ),
     ]
 )
