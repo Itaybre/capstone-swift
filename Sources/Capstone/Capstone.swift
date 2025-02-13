@@ -30,7 +30,7 @@ public class Capstone {
     ///   * `CapstoneError.invalidMode` if the given combination of modes is invalid for the target architecture
     ///   * `CapstoneError.unsupportedVersion` if the installed version of capstone does not match the Swift bindings
     public init(arch: Architecture, mode: Mode = []) throws {
-        guard CS_VERSION_MAJOR == 4, Capstone.version.major == CS_VERSION_MAJOR else {
+        guard CS_VERSION_MAJOR == 5, Capstone.version.major == CS_VERSION_MAJOR else {
             throw CapstoneError.unsupportedVersion
         }
 
